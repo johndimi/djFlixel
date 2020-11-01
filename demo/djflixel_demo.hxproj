@@ -16,22 +16,22 @@
   <!-- Other classes to be compiled into your SWF -->
   <classpaths>
     <class path="C:\HaxeToolkit\haxe\lib\flixel\4,7,0" />
+    <class path="C:\HaxeToolkit\haxe\lib\openfl\8,9,7\src" />
     <class path="C:\HaxeToolkit\haxe\lib\lime\7,8,0\src" />
     <class path="C:\Mega\projects\djFlixel+\source" />
-    <class path="C:\Mega\projects\djA\source" />
-    <class path="C:\mega\projects\djFL\source" />
-    <class path="C:\HaxeToolkit\haxe\lib\openfl\8,9,7\src" />
     <class path="C:\HaxeToolkit\haxe\lib\openfl\8,9,7\externs\flash" />
     <class path="source" />
+    <class path="bin\flash" />
+    <class path="bin\flash\haxe" />
   </classpaths>
   <!-- Build options -->
   <build>
-    <option directives="flixel=4.7.0&#xA;lime=7.8.0&#xA;djFlixel=0.4.0&#xA;djA=0.1.0&#xA;djFL=0.1.0&#xA;openfl=8.9.7&#xA;next&#xA;DYN_ASSETS&#xA;tools=7.8.0&#xA;no-compilation&#xA;openfl-flash&#xA;FLX_NO_TOUCH&#xA;openfl-disable-handle-error&#xA;DJFLX_VER=0.4.0&#xA;web" />
+    <option directives="flixel=4.7.0&#xA;openfl=8.9.7&#xA;lime=7.8.0&#xA;djFlixel=0.4.0&#xA;native-trace&#xA;next&#xA;DYN_ASSETS&#xA;tools=7.8.0&#xA;flash-use-stage&#xA;no-compilation&#xA;openfl-flash&#xA;FLX_NO_TOUCH&#xA;fdb&#xA;openfl-disable-handle-error&#xA;DJFLX_VER=0.4.0&#xA;web" />
     <option flashStrict="False" />
     <option noInlineOnDebug="False" />
     <option mainClass="ApplicationMain" />
     <option enabledebug="False" />
-    <option additional="--macro lime._internal.macros.DefineMacro.run()&#xA;--macro openfl._internal.macros.ExtraParams.include()&#xA;--macro flixel.system.macros.FlxDefines.run()&#xA;-dce std&#xA;-swf-version 40&#xA;--no-output " />
+    <option additional="--macro openfl._internal.macros.ExtraParams.include()&#xA;--macro lime._internal.macros.DefineMacro.run()&#xA;--macro flixel.system.macros.FlxDefines.run()&#xA;-dce std&#xA;-swf-lib obj/assets.swf&#xA;-swf-version 40&#xA;-debug " />
   </build>
   <!-- haxelib libraries -->
   <haxelib>
@@ -46,7 +46,7 @@
     <hidden path="obj" />
   </hiddenPaths>
   <!-- Executed before build -->
-  <preBuildCommand>"$(CompilerPath)/haxelib" run lime build "$(OutputFile)" $(TargetBuild) -$(BuildConfig) -Dfdb -Dramdisk --connect 6000</preBuildCommand>
+  <preBuildCommand>"$(CompilerPath)/haxelib" run lime build "$(OutputFile)" $(TargetBuild) -$(BuildConfig) -Dfdb</preBuildCommand>
   <!-- Executed after build -->
   <postBuildCommand alwaysRun="False" />
   <!-- Other project options -->

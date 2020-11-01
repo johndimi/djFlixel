@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project>
 	
-	<!-- APPLICATION SETTINGS -->
-	
 	<app title="djFlixel Demo" version="0.4" package="" company="JohnDimi" />
 	<app preloader="flixel.system.FlxBasePreloader"/>
 	<app main="Main" file="djflx_demo" path="bin\" />
-	<app path="a:\djflx\" if="ramdisk"/>
+	
+	<!--These are mainly for my own development setup, leave commented out-->
+		<!--<app path="a:\djflx\" if="ramdisk"/>-->
+		<!--<haxelib name="djA"/>-->
+		<!--<haxelib name="djFL"/>-->
+	<!--END-->
 	
 	<window width="640" height="480" fps="60" background="#000000" hardware="true" vsync="true" />
 	
 	<haxelib name="flixel"/>
 	<haxelib name="djFlixel"/>
-	<haxelib name="djA"/>
-	<haxelib name="djFL"/>
-	
 	<source path="source" />
 	
 	<!--<assets path="assets"/>-->

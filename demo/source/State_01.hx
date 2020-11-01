@@ -73,7 +73,7 @@ class State_01 extends FlxState
 	// -- Change the background scrolle graphic/color
 	function scroller_next()
 	{
-		var C = DataT.randAr(BGCOLS).copy();
+		var C = DataT.arrayRandom(BGCOLS).copy();
 		C[0] = Pal_DB32.COL[C[0]];	// Convert index to real color
 		C[1] = Pal_DB32.COL[C[1]];
 		

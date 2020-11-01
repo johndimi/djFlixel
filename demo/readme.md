@@ -4,6 +4,9 @@ This is an all around demonstration of the library. Incorporates most of the too
 Currently it **supports** building into **HASHLINK** and **FLASH**.  
 **HTML5** has issues with some per-pixel operations effects.  
 
+e.g. to build for HashLink:
+`haxelib run lime build "Project.xml" hl`
+
 > :cake: Native **Windows** and **Linux** builds are untested, but they might work out of the box. 
 
 ## Third Party assets used in the demo :
