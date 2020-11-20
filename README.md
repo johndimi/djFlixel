@@ -11,7 +11,7 @@ haxelib install git djFlixel https://github.com/johndimi/djFlixel.git
 
 ##  VERSION 0.4 (2020) :pushpin:
 
-[DOWNLOAD SHOWCASE DEMO HERE, FOR WINDOWS](https://1drv.ms/u/s!AodMzJWOMf3gmRlISOGsYfaQMIdh?e=zrdmSV)
+[DOWNLOAD SHOWCASE DEMO HERE (Windows Only)](https://johndimi.itch.io/djflixel)
 
 **Breaking changes** from last version. I completely scrapped some parts and rewrote other parts. The code is now organized differently, and the namespaces have changed. The core objects (*`FlxMenu`, `FlxAutotext`, etc*) are there but the way you use them has changed a bit. djFlixel now declares a single global static class `D` and from there you can access some of the components like controls, alignment helper, text generation, and more.
 
@@ -116,7 +116,7 @@ In the tool `D.bmu` you can find a useful **slice9** scaler, that works by tile-
 
 ### DEMO
 
-In the `/demo` folder you can find the sources for a demo program that will showcase many components of the library. You can download a [binary here (Windows Only)]([DOWNLOAD SHOWCASE DEMO HERE, FOR WINDOWS](https://1drv.ms/u/s!AodMzJWOMf3gmRlISOGsYfaQMIdh?e=zrdmSV))
+In the `/demo` folder you can find the sources for a demo program that will showcase many components of the library. You can download a [binary here (Windows Only)](https://johndimi.itch.io/djflixel)
 
 ![](_readme/demo_title.gif)
 
