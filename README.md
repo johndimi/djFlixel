@@ -1,6 +1,6 @@
-![logo](_readme/logo.png)
+![logo](_readme/logo_02.gif)
 
-**DJFLIXEL** is a set of tools and helpers for [HaxeFlixel](https://github.com/HaxeFlixel/flixel). This is **NOT** a framework, you can easily use the parts you need in your existing or new projects.
+**DJFLIXEL** is a set of tools and helpers for [HaxeFlixel](https://github.com/HaxeFlixel/flixel). It needs a minimum initialization of its main static class `D.hx` and then you are all set to use all of the components in your projects.
 
 
 ### Install
@@ -9,43 +9,7 @@
 haxelib install git djFlixel https://github.com/johndimi/djFlixel.git
 ```
 
-##  VERSION 0.4 (2020) :pushpin:
-
-[DOWNLOAD SHOWCASE DEMO HERE (Windows Only)](https://johndimi.itch.io/djflixel)
-
-**Breaking changes** from last version. I completely scrapped some parts and rewrote other parts. The code is now organized differently, and the namespaces have changed. The core objects (*`FlxMenu`, `FlxAutotext`, etc*) are there but the way you use them has changed a bit. djFlixel now declares a single global static class `D` and from there you can access some of the components like controls, alignment helper, text generation, and more.
-
-> *e.g.* `D.align` *object is where you can find all the alignment functions.*
-
-
-#### New since 0.3
-
-- **`D`** global static class providing quick access to some helper objects.
-- **`FlxSlides`** class is a way to present sprites in pages. They are animated on/off automatically
-- **Bugfixes**, plus many parts have been refactored / re-written.  The library makes more sense now as a whole.
-- All built-in images *(icons,buttons)* are now in a single atlas image.
-
-
-#### Removed since 0.3
-
-- Online API for gamesites, like newgrounds, kongregate, gamejolt **-- Too complex to keep up with it  --**
-
-- Trophies and Leaderboards **-- Require online APIs to work --**
-
-- Bullet Groups **-- Too immature --**
-
-- MapTemplates and Streamable Sprites **-- Too specialized --**
-
-- Toast Popup **-- Too specialized and immature --**
-
-
-#### :snail: IMPORTANT NOTICE for Old Versions
-
-I am resetting the git history, meaning that all old versions are removed from the commits. However, the previous`0.3` version is available to download in the releases tab here on GitHub.  **Why?** The commits and code were 🍝 and I wanted a clean start.
-
-
-
-## :star: DJFLIXEL Main Features :star:
+## Main Features :peach:
 
 ### FlxMenu
 
@@ -63,9 +27,9 @@ Versatile autotype text object that supports a simple inline **tagging** system.
 
 ---
 
-### Global DJFLIXEL Helper Object
+### The Global DJFLIXEL Helper Object `D`
 
-djFlixel offers the Static Class **D** for accessing some minor objects and helpers. It is available in the package `djFlixel.D`  
+djFlixel offers the public static class `D.hx` for accessing some minor objects and helpers. It is available in the package `djFlixel.D`  
 What is included in `D` :
 
 - `D.snd` : Offers some sound functions, like playing assets with only the short filename or setting predefined volumes for sounds
@@ -141,6 +105,8 @@ Those are partial personal libraries that I use in some projects, but I'll proba
 This library started as a helper for my projects, but later decided to open source and distribute it.  
 Please note that this is just a side project of mine and I cannot guarantee any support or bugfixes.   
 I have **tried** to provide meaningful comments throughout the source files, also make sure to checkout the **demo** in the `/demo` folder for a full working example of using the library.
+
+> This library started in 2015-2016, but recently I reseted the commit history to a fresh start. The older versions are available in the TAG releases here on GitHub.
 
 Thanks for checking this out :smile_cat:,  
 John.
