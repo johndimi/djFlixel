@@ -2,12 +2,39 @@
  
  Fades the screen in and out using BitmapFilters
  
+ SUPPORT
+ ---------
+	HTML5,WEBGL  = OK
+	HTML5,CANVAS = TOO SLOW
+	HL = OK
+	FLASH = OK
+	CPP, OTHERS = UNTESTED
+ 
  NOTES
  -------
   - Automatically being added and removed from the state
   - Fading to a solid color is not implemented, only black is supported
  
- HELP
+  
+ EXAMPLE
+ --------
+ 
+	;simple
+	new FilterFader(true, ()->{
+		trace("Fade to black complete");
+	});
+	
+	new FilterFader(true, ()->{
+		trace("Fade to black complete");
+	},{
+		time:2,		// Total time 2 seconds
+		steps:5,	// 5 fade steps
+		delayPost:1	// When fade completes, Wait 1 second then Callback()
+	});
+	
+  
+  
+ DEV HELP
  -------
  
  redResult   = (a[0]  * srcR) + (a[1]  * srcG) + (a[2]  * srcB) + (a[3]  * srcA) + a[4]
@@ -21,7 +48,7 @@
  		0, 1, 0, 0, 0,		// G
  		0, 0, 1, 0, 0,		// B
 		0, 0, 0, 1, 0	];	// A
- 
+		
 =================================================== */
 
  
@@ -35,7 +62,6 @@ import flixel.FlxObject;
 import flixel.util.FlxTimer;
 import openfl.filters.ColorMatrixFilter;
 import openfl.filters.BitmapFilter;
-
 
 class FilterFader extends FlxObject 
 {
@@ -57,9 +83,10 @@ class FilterFader extends FlxObject
 	var dc:DelayCall = null;
 
 	/**
-	   @param	toblack True to fade to black, False to fade from black
-	   @param	CB Complete callback
-	   @param	P Parameters, see <FilterFader.DEF_PAR>
+	   This will automatically be added to the active state
+	   @param	TOBLACK True to fade to black, False to fade from black
+	   @param	CB On Complete callback
+	   @param	PAR Parameters, Overrude `DEF_PAR` fields check class code
 	**/
 	public function new(?TOBLACK:Bool = true, ?CB:Void->Void, ?PAR:Dynamic)
 	{

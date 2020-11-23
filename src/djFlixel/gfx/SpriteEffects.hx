@@ -26,6 +26,10 @@
  * 
  * Example:
  * 
+ * 		var spr = new SpriteEffects('assets/im.png');
+ *		spr.addEffect('noisebox',{w:16});
+ *		add(spr);
+ *		
  *--------------------------------------------------------------------------------------------*/
 
 package djFlixel.gfx;
@@ -44,10 +48,8 @@ import openfl.geom.Matrix;
 import openfl.geom.Point;
 import openfl.geom.Rectangle;
 
-
 class SpriteEffects extends FlxSprite
 {
-	
 	// Update the effects every this many seconds, can be altered realtime
 	public var FREQ:Float = 0.08;
 	
@@ -251,9 +253,6 @@ class SpriteEffects extends FlxSprite
 				FX.update = _fx_noiseline;
 			//====================================================;
 			case "noisebox" :
-				#if (neko || html5)
-				trace("Warning: Noisebox is Very slow on html5");
-				#end
 				 P = DataT.copyFields(params, {
 					 w:4, 	// Size of the noise box
 					 j1:2,	// Jitter distance start
@@ -269,9 +268,6 @@ class SpriteEffects extends FlxSprite
 				 FX.update = _fx_noisebox;
 			//====================================================;
 			case "mask" :
-				#if (neko)
-				trace("Warning: Realtime Masking is EXTREMELY slow on this target");
-				#end
 				/// TODO copyfields+color
 				P = DataT.copyFields(params, {
 					colorBG:0xFF000000, 	 // Color of the inverted alpha, black

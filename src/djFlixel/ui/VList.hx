@@ -3,11 +3,6 @@
  - A general purpose listbox that handles custom sprites in a vertical scrollable list. 
  - Element highlight and cursor support 
  - Mouse support is very basic, primarily built for button inputs
-
- 
- NOTES:
- 
-	- For center alignment and mouse 
  
 ============================= */
  

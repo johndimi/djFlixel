@@ -2,10 +2,11 @@
  Very simple starfield
  ---------------------
  
+ -
+ 
  Example:
  --------
-	 stars = new StarfieldSimple(FlxG.width, FlxG.height, [	
-				Pal_CPCBoy.COL[0], Pal_CPCBoy.COL[7], Pal_CPCBoy.COL[20], Pal_CPCBoy.COL[24] ]);
+	 stars = new StarfieldSimple();		// No parameters for full area, default colors
 	 stars.WIDE_PIXEL = true;
 	 stars.STAR_SPEED = 1.9;
 	 add(stars);
@@ -70,19 +71,23 @@ class StarfieldSimple extends FlxSprite
 	// This will re-initialize the arrays, so avoid calling multiple times
 	public var NUMBER_OF_STARS(default, set):Int;
 	
-	/**
-	 Colors for background and 3 stars, you can set it at anytime
-	 0:Background, 1:Blinking Stars 2:NormalMain 3:Faster fg stars
+	/** Colors for background and 3 stars, you can set it at anytime
 	**/
 	public var COLORS:Array<Int> = [
-			0xFF000000,
-			Pal_DB32.COL[2],
-			Pal_DB32.COL[17],
-			Pal_DB32.COL[8]
+			0xFF000000,			// Background color
+			Pal_DB32.COL[2],	// Blinking Stars
+			Pal_DB32.COL[17],	// Normal Main Stars
+			Pal_DB32.COL[8]		// Faster Foregrounf Stars
 		];
-	
 	//---------------------------------------------------;
 
+	/**
+	   Creates a starfield.
+	   @param	Width 0 for FlxG.Width
+	   @param	Height 0 for FlxG.Height
+	   @param	COL Custom Colors, Check code `StarfieldSimple.COLORS`
+	   @param	NumberOfStars
+	**/
 	public function new(Width:Int = 0, Height:Int = 0, ?COL:Array<Int>, NumberOfStars:Int = DEF_STARS_MAX)
 	{	
 		super();
@@ -106,7 +111,7 @@ class StarfieldSimple extends FlxSprite
 	}//---------------------------------------------------;
 
 	/**
-	 * If you directly call COLORS[0], the buffer will not clear
+	 * If you directly set COLORS[0], the buffer will not clear
 	 * Call this to set the bg color and clear the buffer.
 	 * @param	col New background color
 	 */

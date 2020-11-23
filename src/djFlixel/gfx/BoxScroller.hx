@@ -1,12 +1,11 @@
 /*
  BoxScroller.hx
  ---------------
- - timles an image inside a square
+ - Tiles an image inside a Box
  - Useful for Paralax layers or fullscreen backgrounds.
- - For Performance reasons, don't use very small image sources
- - NEW: Updated code, much shorter and more efficient
+ - For Performance reasons, don't use very small image sources (small like 4x4 pixels)
  
- NOTE: Works like `FlxtimledSprite.hx` but this is faster since
+ NOTE: Works like `FlxTiledSprite.hx` but this is faster since
  		 it's using `copyPixels()`
 		 
  EXAMPLE:
@@ -34,7 +33,7 @@ import flixel.system.FlxAssets;
 
 class BoxScroller extends FlxSprite
 {
-	// The image that is going to be timled
+	// The image that is going to be Tiled
 	var tim:BitmapData;
 	var tr:Rectangle;
 	var dp:Point;
@@ -132,7 +131,7 @@ class BoxScroller extends FlxSprite
 		
 	
 	/**
-	 * Draws a horizontal timled stripe of the source image
+	 * Draws a horizontal Tiled stripe of the source image
 	 * @param	sourceY Y on the source image
 	 * @param	sourceHeight Height on the source image
 	 * @param	destY Draw to this (y) on buffer

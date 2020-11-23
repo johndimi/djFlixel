@@ -1,11 +1,15 @@
 /**
 
- A colored square that changes alpha in hard steps
+ A colored square that changes its alpha value in hard steps
+ Can be placed on top of everything to create fade-like effects
  
  NOTE:
  	- use kill() if you want to stop the animation.
 	
- BLENDMODES:
+	
+ NOTES:
+ 
+	BLENDMODES:
  	add|alpha|darken|difference|erase|hardlight|invert|layer|lighten|multiply|
  	normal|overlay|screen|shader|subtract
 	
@@ -22,16 +26,17 @@ import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.util.FlxDestroyUtil;
 import flixel.util.FlxTimer;
-import openfl.display.BlendMode;
+import flash.display.BlendMode;
 
 
 class BoxFader extends FlxSprite
 {
 	// All available blend modes, useful to have in an array
-	public static var BLEND_MODES = [
-			"normal", "add", "darken", "difference", "erase",
-			"hardlight", "invert", "lighten", "multiply", 
-			"overlay", "screen", "subtract"];
+	// Not useful?
+	//public static var BLEND_MODES = [
+			//"normal", "add", "darken", "difference", "erase",
+			//"hardlight", "invert", "lighten", "multiply", 
+			//"overlay", "screen", "subtract"];
 	
 	// - Default Parameters
 	var DEF_PAR = {
@@ -47,9 +52,9 @@ class BoxFader extends FlxSprite
 	var dc:DelayCall = null;
 	//====================================================;
 	
-	/**
-	   If WIDTH, HEIGHT 0 it defaults to  FlxG.width\FlxG.Height
-	**/
+   /**
+	  If WIDTH, HEIGHT 0 it defaults to  FlxG.width\FlxG.Height
+   **/
 	public function new(X:Float = 0, Y:Float = 0, WIDTH:Float = 0, HEIGHT:Float = 0)
 	{
 		super(X, Y);
@@ -75,7 +80,7 @@ class BoxFader extends FlxSprite
 	 * @param	color Color 0xRRGGBB, no alpha
 	 * @param	blendMode add|alpha|darken|difference|erase|hardlight|invert|layer|lighten|multiply|normal|overlay|screen|shader|subtract
 	 */
-	public function setColor(Color:Int, ?BMode:BlendMode, ?Alpha:Float = 1)
+	public function setColor(Color:Int, ?BMode:String, ?Alpha:Float = 1)
 	{
 		kill();	// Just in case it is running
 		alpha = Alpha;
@@ -122,7 +127,7 @@ class BoxFader extends FlxSprite
 	 * Fade the box to a color
 	 * @param Color Color to set the fade to
 	 * @param CB Callback
-	 * @param P Parameters Check BoxFader.DEF_PAR 
+	 * @param P Parameters object, Can override fields Check `BoxFader.DEF_PAR`
 	 */
 	public function fadeColor(?Color:Int = 0xFF000000, ?CB:Void->Void, ?P:Dynamic)
 	{
@@ -132,11 +137,7 @@ class BoxFader extends FlxSprite
 		
 		// Color the surface, set the blend, and set the alpha
 		// Set the alpha to either 0 or leave it to whatever it is
-		#if (flash)
-			setColor(Color, cast (P.blend, BlendMode), alpha);
-		#else
-			setColor(Color, "normal", alpha);
-		#end
+		setColor(Color, cast P.blend, alpha);
 		
 		st = new StepTimer((s, end)->{
 			alpha = tickFadeAmount * s;

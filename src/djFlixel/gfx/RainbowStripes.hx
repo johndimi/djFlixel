@@ -5,6 +5,12 @@
  - Default colors are Amstrad CPC based
  - Set your own COLORS by directly accessing the array "COLORS" to as many as you want
  
+ 
+ --
+ 
+	setOn(true); 	to make it visible and updating
+	setOn(false); 	to hide it (starts off this way)	
+ 
  -- EXAMPLE
 	var rainbow = new RainbowStripes();
 	rainbow.COLORS = [color1,color2,color3];
@@ -21,11 +27,6 @@ import flixel.FlxSprite;
 import flixel.util.FlxSpriteUtil;
 import openfl.geom.Rectangle;
 
-
-/**
- * setOn(true); to make it visible and updating
- * setOn(false); to hide it (default at creation)	
- */
 
 class RainbowStripes extends FlxSprite
 {
@@ -80,8 +81,9 @@ class RainbowStripes extends FlxSprite
 		_rc = new Rectangle();
 		_rc.width = pixels.width;
 		
-		COLORS = Pal_CPC.COL;	// FUTURE: Set custom colors?
+		COLORS = Pal_CPC.COL;
 		
+		setMode(1);
 		setOn(false);
 	}//---------------------------------------------------;
 
@@ -98,7 +100,7 @@ class RainbowStripes extends FlxSprite
 	
 	/**
 	 * Set a predefined mode to run this.
-	 * @param	mode [0-3] 0-one color border, 1-big borders, 2-smaller 3-smallest
+	 * @param	mode [0-3] 0:Biggest stripes, 3:Smallest stripes
 	 * @return
 	 */
 	public function setMode(mode:Int)
@@ -165,7 +167,7 @@ class RainbowStripes extends FlxSprite
 	}//---------------------------------------------------;
 	
 	/**
-	   Change stripe height and speed
+	   Change stripe height and speed. This is for advanced usage. Just call setMode()
 	   @param	maxH Max Height
 	   @param	minH Min Height
 	   @param	sp Update speed in millisecs

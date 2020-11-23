@@ -11,11 +11,13 @@
    
    == Example :
    	var st = new StaticNoise(20, 20, 160, 160);
-	st.TICK = 0.4;	// increase tick, make it slowwer
+	st.TICK = 0.4;	// increase tick, make it slower
 	st.color_custom([0xFF333344,0xFF998855]);	// custom colors
 	add(st);
 	
-   
+	
+!! DOES NOT WORK ON HTML !!
+	
 ======================================= */
 
 package djFlixel.gfx;
@@ -29,6 +31,7 @@ import openfl.geom.Rectangle;
 
 class StaticNoise extends FlxSprite
 {
+	/** Update the noise every this many seconds */
 	public var TICK:Float = 0.12;
 	var COLORS:Array<Int> = [];
 	var col:FlxColor;

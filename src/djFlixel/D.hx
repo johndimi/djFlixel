@@ -1,12 +1,11 @@
-/******************************************************************
- * DjFlixel Main Static Helper Class
- * ==-------------------------------==
+/********************************************************************
+ * DJFLIXEL Main Static Helper Class
+ * ---------------------------------
  * 
  * - Call D.init() before creating the FlxGame()
  * - Provides general purpose tools
- * - Use `Info.debug_keys` in conjuction with `D.assets`
  * 
- *****************************************************************/
+ *******************************************************************/
 
 package djFlixel;
 
@@ -33,24 +32,20 @@ class D
 	/** Defined in djFlixel `include.xml` */
 	public inline static var DJFLX_VER:String = Macros.getDefine("DJFLX_VER");
 	
-	/** Current Antialiasing on/off, comes with a setter that applies to all cameras */
-	public static var SMOOTHING(default, set):Bool = false;
-	
-	/**
-	   Application info and starting parameters.
-	   Set new ones with D.init(..)
+	/** Application info and starting parameters.
+	    Set new ones with D.init(..)
 	**/
 	public static var INFO(default,null) = {
-		name:"HaxeFlixel App",
-		version:"0.1",
-		website:"",
+		name:"djflixel_app",	// Used for log infos
+		version:"0.1",			// Used for log infos
+		website:"",				// General Purpose, not used
 		// ------
-		volume: 0.8,
-		fullscreen:false,
+		volume: -1,				// float (0 to 1), if >0 Will set global flixel volume to this 
+		fullscreen:false,		// Start fullscreen
 		smoothing:false,		// Soft pixels
-		savename:"",			// OPTIONAL - Savegame ID, make sure it is unique
+		savename:"",			// OPTIONAL - Savegame ID, make sure it is unique among djflixel projects
 		// ------
-		debug_keys:false		// Enable the use of `_debug_keys()` called on update
+		debug_keys:false		// Enable `D._debug_keys()` 
 	};
 	
 	/** Sound System */
@@ -74,21 +69,23 @@ class D
 	/** Other GFX utilities (flixel/djflixel) specific */
 	public static var gfx(default, null):Dgfxutil;
 	
-	// For hashlink,webgl and other targets do the screen softening with a blurfilter
+	// For hashlink, webgl and other targets do the screen softening with a blurfilter
 	// rather than the builtin Smoothing, because it can lead to some glitches
-	// especially in tilemaps. Flash and HTML Canvas seem to be OK with the build in.
+	// especially in tilemaps. Flash and HTML Canvas seem to be OK with the build in smoothing method.
 	#if (!flash && !canvas)
 		static var filters:Array<BitmapFilter>;
 		static var bf:BlurFilter;
 	#end
 	
-	// Depends on fullscreen size, how big the window can get in zoom increments.
+	/** Depends on fullscreen size, how big the window can get in zoom increments */
 	public static var MAX_WINDOW_ZOOM(default, null):Int = 1;
 	
+	/** Current Antialiasing on/off, comes with a setter that applies to all cameras */
+	public static var SMOOTHING(default, set):Bool = false;
 	
 	/** 
-	 * Create
-	 * @param O Override fields of <D.INFO>
+	 * Initialize this static class
+	 * @param O You can override fields of `D.INFO` check in code
 	 **/
 	public static function init(?O:Dynamic)
 	{
@@ -122,11 +119,11 @@ class D
 		// :: Some code that needs to run after flxgame is created
 		FlxG.signals.preGameStart.addOnce(()->{
 			MAX_WINDOW_ZOOM = Math.floor(Lib.current.stage.fullScreenWidth / FlxG.width) - 1;
-			ctrl = new Dcontrols();
-			FlxG.mouse.useSystemCursor = true;
-			snd.setVolume(null, INFO.volume);
 			SMOOTHING = INFO.smoothing;
+			if (INFO.volume >= 0) snd.setVolume(null, INFO.volume);
+			FlxG.mouse.useSystemCursor = true;
 			FlxG.fullscreen = INFO.fullscreen;
+			ctrl = new Dcontrols(); // This needs to init after new FlxGame
 		});
 		
 		#if debug
@@ -172,6 +169,7 @@ class D
 	
 	static function onResize(x, y)
 	{
+		// Recalculate the blur filter to match the new window size?
 		#if ( !flash && !canvas)
 			var rx = (x / FlxG.width);
 			var ry = (y / FlxG.height);
@@ -229,6 +227,5 @@ class D
 	}//---------------------------------------------------;
 	
 	#end 
-	
 	
 }// --

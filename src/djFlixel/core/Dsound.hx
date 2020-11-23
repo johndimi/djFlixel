@@ -65,7 +65,7 @@ class Dsound
 	 */
 	public function setVolume(?group:String, vol:Float = 1)
 	{
-		switch(group){
+		switch(group) {
 			case "sounds": FlxG.sound.defaultSoundGroup.volume = vol;
 			case "music" : FlxG.sound.defaultMusicGroup.volume = vol;
 			default: FlxG.sound.volume = vol;
