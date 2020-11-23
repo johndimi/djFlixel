@@ -3,11 +3,13 @@
 
 	<!-- General -------->
 	<set name="SWF_VERSION" value="40"/> <!-- default is 11.8 -->
-	<window if="html5" resizable="false" />
+	
+	<!--<window if="html5" resizable="false" />--> <!--User should decide -->
+	
 	<haxedef name="next" />	<!--I don't know if this is required, but I am declaring anyway-->
 	
 	<!-- DJFlixel --------->
-	<haxedef name="DJFLX_VER" value="0.4.0"/>
+	<haxedef name="DJFLX_VER" value="0.4.2"/>
 	<assets path="assets/ui_atlas.png" embed="true"/>
 	
 	<!-- Flixel Defines ------->
