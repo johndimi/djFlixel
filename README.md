@@ -6,7 +6,7 @@
 ### Install
 
 ```sh
-haxelib install git djFlixel https://github.com/johndimi/djFlixel.git
+haxelib install git djFlixel https://github.com/john32b/djFlixel.git
 ```
 
 ## Main Features :peach:
@@ -80,7 +80,7 @@ In the tool `D.bmu` you can find a useful **slice9** scaler, that works by tile-
 
 ### DEMO
 
-In the `/demo` folder you can find the sources for a demo program that will showcase many components of the library. You can download a [binary here (Windows Only)](https://johndimi.itch.io/djflixel)
+In the `/demo` folder you can find the sources for a demo program that will showcase many components of the library. You can download a [binary here (Windows Only)](https://john0032.itch.io/djflixel)
 
 ![](_readme/demo_title.gif)
 
@@ -100,7 +100,7 @@ Those are partial personal libraries that I use in some projects, but I'll proba
 
 **DJFLIXEL version** : 0.4 , **License** : MIT  
 **Requires** : Haxe 4.1.3, HaxeFlixel 4.7.0  
-**Author** : John Dimi 2016-2020
+**Author** : John32b 2016-2020
 
 This library started as a helper for my projects, but later decided to open source and distribute it.  
 Please note that this is just a side project of mine and I cannot guarantee any support or bugfixes.   

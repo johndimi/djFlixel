@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project>
 	
-	<app title="djFlixel Demo" version="0.4" package="" company="JohnDimi" />
+	<app title="djFlixel Demo" version="0.4" package="" company="John32B" />
 	<app preloader="flixel.system.FlxBasePreloader"/>
 	<app main="Main" file="djflx_demo" path="bin\" />
 	

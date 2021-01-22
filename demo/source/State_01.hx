@@ -57,7 +57,7 @@ class State_01 extends FlxState
 			bg1.makeGraphic(FlxG.width, 18, 0xFF000000);
 			add(D.align.screen(bg1, '-', 'b'));
 		D.text.fix({c:Pal_DB32.COL[21], bc:Pal_DB32.COL[1], bt:2});
-		var t1 = D.text.get('DJFLIXEL ' + D.DJFLX_VER + ', by John Dimi.');
+		var t1 = D.text.get('DJFLIXEL ' + D.DJFLX_VER + ', by John32B.');
 			add(D.align.screen(t1, 'l', 'b', 2));
 		var t2 = D.text.get('Music "DvD - Deep Horizons"', {c:Pal_DB32.COL[22]});
 			add(D.align.screen(t2, 'r', 'b', 2 ));
